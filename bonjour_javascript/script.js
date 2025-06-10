@@ -11,7 +11,7 @@ function sayHello(firstname,hour){
         message = `Bonsoir ${firstname} !`
     }
     console.log(message)
-    return message
+    // return message
 }
 
 sayHello(firstname,11)
