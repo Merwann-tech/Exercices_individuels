@@ -30,7 +30,7 @@ function didIWin(givenNumber,randomNumber){
     }
     else if (givenNumber > randomNumber){
         h1.innerText = 'Le nombre est plus petit \n  tentative numéro :' + tentative
-        let num = Plus.innerText
+        let num = parseInt(Plus.innerText)
         if (givenNumber<num){
             Plus.innerText = givenNumber
         }
@@ -39,9 +39,9 @@ function didIWin(givenNumber,randomNumber){
         // return false
     }
     else if (givenNumber < randomNumber){
-        h1.innerText = 'Le nombre est lus grand \n  tentative numéro :' + tentative
-        let num1 = Moins.innerText
-        if (givenNumber>num1){
+        h1.innerText = 'Le nombre est plus grand \n  tentative numéro :' + tentative
+        var num1 = parseInt(Moins.innerText);
+        if (givenNumber > num1){
             Moins.innerText = givenNumber
         }
         tentative = tentative +1
@@ -62,7 +62,7 @@ function didIWin(givenNumber,randomNumber){
 
 
 button.addEventListener('click', () => {
-    let givenNumber = giveNumber()
+    let givenNumber = parseInt(giveNumber())
     didIWin(givenNumber,randomNumber)
 })
 
