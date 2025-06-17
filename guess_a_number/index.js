@@ -14,8 +14,7 @@ function giveNumber(){
 
 function giveRandomNumber(){
     let num = prompt(`Choisis un nombre a faire deviner compris entre 1 et 50`)
-    console.log(num)
-    while (num > 50){
+    while (num > 50 || num < 0 ){
         num = prompt(`Choisis un nombre a faire deviner compris entre 1 et 50`)
     }
     return parseInt(num)
