@@ -28,7 +28,7 @@ function didIWin(givenNumber,randomNumber){
             body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en seulement ' + tentative + ' tentative</h1>' 
             body.innerHTML += '<img src="https://media1.tenor.com/m/6vjzHxepwDkAAAAC/pout-kiss.gif" alt="gif">'            
         }
-        else if (tentative<7){
+        else if (tentative<=7){
             body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en seulement ' + tentative + ' tentatives</h1>'
             body.innerHTML += '<img src="https://media1.tenor.com/m/6vjzHxepwDkAAAAC/pout-kiss.gif" alt="gif">'
         }
@@ -63,6 +63,16 @@ function didIWin(givenNumber,randomNumber){
     }
 }
 
+
+
+
+button.addEventListener('click', () => {
+    let givenNumber = parseInt(giveNumber())
+    didIWin(givenNumber,randomNumber)
+})
+
+
+
 // function gamePlay(){
 //     let randomNumber = giveRandomNumber()
 //     // let randomNumber = 5
@@ -71,11 +81,4 @@ function didIWin(givenNumber,randomNumber){
 //         givenNumber = giveNumber()
 //     }
 // }
-
-
-
-button.addEventListener('click', () => {
-    let givenNumber = parseInt(giveNumber())
-    didIWin(givenNumber,randomNumber)
-})
 
