@@ -8,7 +8,7 @@ const Plus = document.querySelector('#plus')
 
 
 function giveNumber(){
-    return document.getElementById("in").value
+    return document.getElementById("in").value;
     // return prompt(`choisis un nombre compris entre 1 et 50`)
 }
 
@@ -39,7 +39,7 @@ function didIWin(givenNumber,randomNumber){
         // return false
     }
     else if (givenNumber < randomNumber){
-        h1.innerText = 'Le nombre est plus grand \n  tentative numéro :' + tentative
+        h1.innerText = 'Le nombre est lus grand \n  tentative numéro :' + tentative
         let num1 = Moins.innerText
         if (givenNumber>num1){
             Moins.innerText = givenNumber
