@@ -22,6 +22,7 @@ function giveRandomNumber(){
 }
 
 
+
 function didIWin(givenNumber,randomNumber){
     if (givenNumber == randomNumber){
         body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en seulement ' + tentative + ' tentative'
