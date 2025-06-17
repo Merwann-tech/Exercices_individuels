@@ -24,7 +24,20 @@ function giveRandomNumber(){
 
 function didIWin(givenNumber,randomNumber){
     if (givenNumber == randomNumber){
-        body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en seulement ' + tentative + ' tentative'
+        if (tentative <= 1){
+            body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en seulement ' + tentative + ' tentative</h1>' 
+            body.innerHTML += '<img src="https://media1.tenor.com/m/6vjzHxepwDkAAAAC/pout-kiss.gif" alt="gif">'            
+        }
+        else if (tentative<7){
+            body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en seulement ' + tentative + ' tentatives</h1>'
+            body.innerHTML += '<img src="https://media1.tenor.com/m/6vjzHxepwDkAAAAC/pout-kiss.gif" alt="gif">'
+        }
+        else{
+            body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en seulement ' + tentative + ' tentatives</h1>'
+            body.innerHTML += '<img src=https://media.tenor.com/gmHrOv0ibXUAAAAM/pourri.gif" alt="gif">'  
+        }
+
+
         // alert(`Bravo ! Vous avez deviné le nombre`)
         // return true
     }
