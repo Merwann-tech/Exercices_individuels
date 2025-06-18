@@ -13,9 +13,9 @@ function giveNumber(){
 }
 
 function giveRandomNumber(){
-    let num = prompt(`Choisis un nombre a faire deviner compris entre 1 et 50`)
+    let num = prompt(`Choisis un nombre a faire deviner compris entre 0 et 50`)
     while (num > 50 || num < 0 ){
-        num = prompt(`Choisis un nombre a faire deviner compris entre 1 et 50`)
+        num = prompt(`Choisis un nombre a faire deviner compris entre 0 et 50`)
     }
     return parseInt(num)
 }
@@ -33,7 +33,7 @@ function didIWin(givenNumber,randomNumber){
             body.innerHTML += '<img src="https://media1.tenor.com/m/6vjzHxepwDkAAAAC/pout-kiss.gif" alt="gif">'
         }
         else{
-            body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en seulement ' + tentative + ' tentatives</h1>'
+            body.innerHTML = '<h1>Bravo ! Vous avez deviné le nombre en ' + tentative + ' tentatives</h1>'
             body.innerHTML += '<img src=https://media.tenor.com/gmHrOv0ibXUAAAAM/pourri.gif" alt="gif">'  
         }
 

@@ -7,5 +7,25 @@ body { /* <- selecteur */
 
 Button {
     text-align: center;
-    color: rgb(255, 255, 255); font-size: 19px; line-height: 19px; padding: 17px; border-radius: 40px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 0px solid rgb(28, 110, 164); display: inline-block;
+    color: rgb(255, 255, 255); 
+    font-size: 19px; 
+    line-height: 19px; 
+    padding: 17px; 
+    border-radius: 40px; 
+    font-family: Georgia, serif; 
+    font-weight: normal; 
+    text-decoration: none; 
+    font-style: normal; 
+    font-variant: normal; 
+    text-transform: none; 
+    background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); 
+    box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; 
+    border: 0px solid rgb(28, 110, 164); 
+    display: inline-block;
 }
+Button:hover {
+    background: #1C6EA4; }
+Button:active {
+    background: #144E75; }
+#in {
+    background: rgb(67, 150, 234); }
