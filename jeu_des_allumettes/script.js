@@ -77,5 +77,5 @@ function play() {
 }
 
 // for (index=0; index<100; index++){
-//     console.log((Math.random()*100%6)+1)
+//     console.log((Math.random().toFixed(1) * 10) % 6) + 1;
 // }
