@@ -1,6 +1,15 @@
 let allumettes = 50;
-let multiplayer = confirm("voulez vous jouez a deux joueur?");
+let multiplayer = confirm("voulez vous jouez en multijoueur ?");
+let nbPlayer = "";
 play();
+
+function multiplayers(nb) {
+  soustrairAllumettes(player(nb));
+  alert(`il reste ${allumettes} allumettes`);
+  if (allumettes <= 0) {
+    alert(`joueur ${nb} a gagné`);
+  }
+}
 
 function soustrairAllumettes(nbAllumettes) {
   allumettes -= nbAllumettes;
@@ -29,30 +38,38 @@ function bot() {
 }
 
 function play() {
+  if (multiplayer == true) {
+    while (true){
+        nbPlayer = prompt(`vous voulez jouer a combien de joueur`);
+        if(nbPlayer>=2){
+            break
+        }else{
+            alert(`il faut minimum 2 joueur`)
+        }
+    }
+  }
   let game = true;
   while (game == true) {
-    soustrairAllumettes(player(1));
-    alert(`il reste ${allumettes} allumettes`);
+    multiplayers(1);
     if (allumettes <= 0) {
-      alert(`joueur 1 a gagné`);
       game = false;
+    }
+    if (multiplayer == false) {
+      let nbRandom = bot();
+      soustrairAllumettes(nbRandom);
+      alert(
+        `l'adversaire retire ${nbRandom} allumettes il en reste ${allumettes}`
+      );
+      if (allumettes <= 0) {
+        alert(`vous avez perdu`);
+        game = false;
+      }
     } else {
-      if (multiplayer == true) {
-        soustrairAllumettes(player(2));
-        alert(`il reste ${allumettes} allumettes`);
+      for (i = 2; i <= nbPlayer; i++) {
+        multiplayers(i);
         if (allumettes <= 0) {
-          alert(`joueur 2 a gagné`);
           game = false;
-        }
-      } else {
-        let nbRandom = bot();
-        soustrairAllumettes(nbRandom);
-        alert(
-          `l'adversaire retire ${nbRandom} allumettes il en reste ${allumettes}`
-        );
-        if (allumettes <= 0) {
-          alert(`vous avez perdu`);
-          game = false;
+          break;
         }
       }
     }
@@ -60,5 +77,5 @@ function play() {
 }
 
 // for (index=0; index<100; index++){
-//     console.log((Math.random()%6)+1)
+//     console.log((Math.random()*100%6)+1)
 // }
