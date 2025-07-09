@@ -1,13 +1,26 @@
 let allumettes = 50;
-let multiplayer = confirm("voulez vous jouez en multijoueur ?");
+let multiplayer = confirm("Voulez-vous jouer en multijoueur ?");
 let nbPlayer = "";
 play();
 
+function nbPlayers() {
+  if (multiplayer == true) {
+    while (true) {
+      nbPlayer = prompt(`À combien de joueurs voulez-vous jouer ?`);
+      if (nbPlayer >= 2) {
+        break;
+      } else {
+        alert(`Il faut au minimum 2 joueurs.`);
+      }
+    }
+  }
+}
+
 function multiplayers(nb) {
   soustrairAllumettes(player(nb));
-  alert(`il reste ${allumettes} allumettes`);
+  alert(`Il reste ${allumettes} allumettes.`);
   if (allumettes <= 0) {
-    alert(`joueur ${nb} a gagné`);
+    alert(`Le joueur ${nb} a gagné.`);
   }
 }
 
@@ -18,12 +31,12 @@ function soustrairAllumettes(nbAllumettes) {
 function player(nb) {
   while (true) {
     let nbUser = prompt(
-      `joueur${nb} combien d'allumettes souhaite tu retirer ? tu peut retiré jusqu'a 6 allumettes`
+      `Joueur ${nb} : combien d'allumettes souhaitez-vous retirer ? Vous pouvez retirer jusqu'à 6 allumettes.`
     );
     if (nbUser > 6 || nbUser < 1) {
-      alert("j'ai dis entre 1 et 6 allumettes");
+      alert("Veuillez choisir entre 1 et 6 allumettes.");
     } else if (nbUser > allumettes) {
-      alert(`il reste seulement ${allumettes} allumettes`);
+      alert(`Il reste seulement ${allumettes} allumettes.`);
     } else {
       return nbUser;
     }
@@ -38,16 +51,7 @@ function bot() {
 }
 
 function play() {
-  if (multiplayer == true) {
-    while (true){
-        nbPlayer = prompt(`vous voulez jouer a combien de joueur`);
-        if(nbPlayer>=2){
-            break
-        }else{
-            alert(`il faut minimum 2 joueur`)
-        }
-    }
-  }
+  nbPlayers();
   let game = true;
   while (game == true) {
     multiplayers(1);
@@ -58,10 +62,10 @@ function play() {
       let nbRandom = bot();
       soustrairAllumettes(nbRandom);
       alert(
-        `l'adversaire retire ${nbRandom} allumettes il en reste ${allumettes}`
+        `L'adversaire retire ${nbRandom} allumettes. Il en reste ${allumettes}.`
       );
       if (allumettes <= 0) {
-        alert(`vous avez perdu`);
+        alert(`Vous avez perdu.`);
         game = false;
       }
     } else {
@@ -75,7 +79,3 @@ function play() {
     }
   }
 }
-
-// for (index=0; index<100; index++){
-//     console.log((Math.random().toFixed(1) * 10) % 6) + 1;
-// }
