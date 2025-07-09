@@ -1,17 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>traducteur latin vers morse</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/morse.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+</head>
+
+<body>
+
+  <!-- Start your project here-->
+  <div class="bg-image vh-100"
+      style="background-image: url('https://www.zoologiste.com/images/xl/morse.jpg');">
+
+    <div class="container">
+      <div class="text-white text-center">
+        <h1 class="mb-3" id="H1">Traducteur latin vers morse</h1>
+      </div>
+      <div class="row gx-xl-5">
+        <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
+          <div class="card">
+            <div class="card-body">
+              <div class="mb-3">
+                <div class="form-outline" data-mdb-input-init>
+                  <textarea class="form-control" id="input" rows="4"></textarea>
+                  <label class="form-label" for="input">Traducteur</label>
+                </div>
+              </div>
+              <button class="btn btn-outline-primary " href="#" role="button" id="btnTraduction">traduire</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
+          <div class="card">
+            <div class="card-body">
+              <div class="mb-3">
+                <div class="form-outline">
+                  <div class="mb-3">
+                  <p>Traduction :</p>
+                  </div>
+                  <p id="traduction"></p>
+                </div>
+              </div>
+              <button class="btn btn-outline-secondary" href="#" role="button"
+                id="switch">latin&DoubleLeftRightArrow;morse</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script defer type="module" src="script.js"></script>
     <script defer type="module" src="dictionaire.js"></script>
-</head>
-<body>
-    <h1 id="H1" >traducteur latin vers morse</h1>
-    <input id="input" type="text"> 
-    <p id="traduction"></p>
-    <button id="btnTraduction">traduction</button>
-    <button id="switch">latin&DoubleLeftRightArrow;morse</button>
+  </div>
+
+
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.umd.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
 </body>
+
 </html>

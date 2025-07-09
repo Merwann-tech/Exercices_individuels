@@ -19,12 +19,14 @@ function translateLatinCharacter(Character) {
   return latinToMorse[Character.toUpperCase()];
 }
 function encode(string) {
-  let encoded = "";
-  let arrays = getLatinCharacterList(string);
-  for (let i = 0; i < arrays.length; i++) {
-    encoded += translateLatinCharacter(arrays[i]) + " ";
+  if (string != "") {
+    let encoded = "";
+    let arrays = getLatinCharacterList(string);
+    for (let i = 0; i < arrays.length; i++) {
+      encoded += translateLatinCharacter(arrays[i]) + " ";
+    }
+    return encoded;
   }
-  return encoded;
 }
 
 function getMorseCharacterList(string) {
@@ -34,44 +36,62 @@ function translateMorseCharacter(Character) {
   return morseToLatin[Character];
 }
 function decode(string) {
-  let decoded = "";
-  let arrays = getMorseCharacterList(string);
-  for (let i = 0; i < arrays.length; i++) {
-    decoded += translateMorseCharacter(arrays[i]);
+  if (string != "") {
+    let decoded = "";
+    let arrays = getMorseCharacterList(string);
+    for (let i = 0; i < arrays.length; i++) {
+      decoded += translateMorseCharacter(arrays[i]);
+    }
+    return decoded.toLowerCase();
   }
-  return decoded.toLowerCase();
+}
+function isMorse(input) {
+  for (let i = 0; i < input.length; i++) {
+    if (
+      input[i] != "/" &&
+      input[i] != "." &&
+      input[i] != "-" &&
+      input[i] != " "
+    ) {
+      return false;
+    }
+  }
+  return true;
 }
 
 btnTraduction.addEventListener("click", () => {
   let input = document.getElementById("input").value;
-  if (togglebtn == true) {
-    traduction.innerText = encode(input);
-  } else {
-    traduction.innerText = decode(input);
+  if (input != "") {
+    if (togglebtn == true) {
+      if (isMorse(input) == true) {
+        togglebtn = false;
+        H1.innerText = "Traducteur morse vers latin";
+        btnTraduction.click();
+      } else {
+        traduction.innerText = encode(input);
+      }
+    } else {
+      if (isMorse(input) == false) {
+        togglebtn = true;
+        H1.innerText = "Traducteur latin vers morse";
+        btnTraduction.click();
+      } else {
+        traduction.innerText = decode(input);
+      }
+    }
   }
 });
 
 btnSwitch.addEventListener("click", () => {
   if (togglebtn == true) {
     togglebtn = false;
-    H1.innerText = "traducteur morse vers latin";
-    let traduire = document.getElementById("input").value;
+    H1.innerText = "Traducteur morse vers latin";
     document.getElementById("input").value = traduction.innerText;
-    traduction.innerText = traduire;
+    btnTraduction.click();
   } else if (togglebtn == false) {
     togglebtn = true;
-    H1.innerText = "traducteur latin vers morse";
-    let traduire = document.getElementById("input").value;
+    H1.innerText = "Traducteur latin vers morse";
     document.getElementById("input").value = traduction.innerText;
-    traduction.innerText = traduire;
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
     btnTraduction.click();
   }
 });
-
-// console.log(encode("hello world"))
-// console.log(decode(".... . .-.. .-.. --- / .-- --- .-. .-.. -.."))
