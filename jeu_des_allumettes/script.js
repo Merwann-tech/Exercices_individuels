@@ -56,7 +56,7 @@ function play() {
   while (game == true) {
     multiplayers(1);
     if (allumettes <= 0) {
-      game = false;
+      break
     }
     if (multiplayer == false) {
       let nbRandom = bot();

@@ -5,6 +5,8 @@ const traduction = document.getElementById("traduction");
 const btnTraduction = document.getElementById("btnTraduction");
 const btnSwitch = document.getElementById("switch");
 const H1 = document.getElementById("H1");
+const copy = document.getElementById("copy");
+const clear = document.getElementById("clear");
 let togglebtn = true;
 
 function getLatinCharacterList(string) {
@@ -94,4 +96,26 @@ btnSwitch.addEventListener("click", () => {
     document.getElementById("input").value = traduction.innerText;
     btnTraduction.click();
   }
+});
+
+copy.addEventListener("click", () => {
+  navigator.clipboard.writeText(traduction.innerText);
+  const tooltipInstance = mdb.Tooltip.getInstance(copy);
+  copy.setAttribute("title", "Copié !");
+  new mdb.Tooltip(copy); // Réinitialise le tooltip avec le nouveau texte
+  tooltipInstance.show(); // Affiche le nouveau tooltip
+
+  // Remettre le texte d'origine après 2 secondes
+  setTimeout(() => {
+    tooltipInstance.dispose();
+    copy.setAttribute("title", "Copier le texte");
+    new mdb.Tooltip(copy);
+  }, 2000);
+});
+
+const tooltips = document.querySelectorAll('[data-mdb-toggle="tooltip"]');
+tooltips.forEach((el) => new mdb.Tooltip(el));
+
+clear.addEventListener("click", () => {
+  document.getElementById("input").value = ""
 });
