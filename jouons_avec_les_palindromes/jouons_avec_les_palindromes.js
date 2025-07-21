@@ -2,7 +2,7 @@ function isValidDate(Date) {
   Date = Date.split("/");
   if (999 < Date[2] && Date[2] < 10000) {
     if (Date[1] < 13 && Date[1] > 0) {
-      if (maxDaysInMonth(Date[0], Date[1]) == true) {
+      if (maxDaysInMonth(Date[0], Date[1], Date[2]) == true) {
         return true;
       }
     }
@@ -10,11 +10,17 @@ function isValidDate(Date) {
   return false;
 }
 
-function maxDaysInMonth(day, month) {
+function maxDaysInMonth(day, month, annee) {
   const month30 = ["04", "06", "09", "11"];
   if (day > 0 && day <= 31) {
-    if (day <= 29) {
+    if (day <= 28) {
       return true;
+    } else if (day <= 29) {
+      if (month != "02") {
+        return true;
+      } else if ((annee % 4) == 0) {
+        return true;
+      }
     } else if (day <= 30) {
       if (month != "02") {
         return true;
@@ -28,14 +34,10 @@ function maxDaysInMonth(day, month) {
   return false;
 }
 
-
-
-
-
 function isPalindrome(Palindrome) {
   let kayak = 0;
   for (let i = 0; i < Palindrome.length; i++) {
-    if (Palindrome[i] == Palindrome[(Palindrome.length-1) - i]) {
+    if (Palindrome[i] == Palindrome[Palindrome.length - 1 - i]) {
       kayak++;
     }
   }
@@ -47,41 +49,36 @@ function isPalindrome(Palindrome) {
 }
 
 function isDatePalindrome(Date) {
-  if (isValidDate(Date)==true){
-    Date = Date.split("/").join("")
-    if (isPalindrome(Date)==true){
-      return true
-    }
+  if (isValidDate(Date) == true) {
+    Date = Date.split("/").join("");
+    return isPalindrome(Date);
   }
-  return false
-
+  return false;
 }
-
 
 function getNextPalindromes(nb) {
   let i = 0;
   let nbPalindromes = 0;
-  while (nbPalindromes < nb && i <= 2581244 ) {
+  while (nbPalindromes < nb) {
     const date = new Date();
     date.setDate(date.getDate() + i);
     const jour = String(date.getDate()).padStart(2, "0");
-    const mois = String(date.getMonth() + 1).padStart(2, "0"); 
+    const mois = String(date.getMonth() + 1).padStart(2, "0");
     const annee = date.getFullYear();
 
     const dateFormattee = `${jour}/${mois}/${annee}`;
-    if (isDatePalindrome(dateFormattee) == true){
-        console.log(dateFormattee)
-        nbPalindromes++
+    if (isDatePalindrome(dateFormattee) == true) {
+      console.log(dateFormattee);
+      nbPalindromes++;
     }
-    i++
+    if (isValidDate(dateFormattee) == false) {
+      break;
+    }
+    i++;
   }
 }
 
-getNextPalindromes(99999)
-
-
-
-
+getNextPalindromes(999999);
 
 
 
@@ -101,4 +98,3 @@ getNextPalindromes(99999)
 //     return false;
 //   }
 // }
-
