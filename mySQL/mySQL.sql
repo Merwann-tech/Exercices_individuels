@@ -7,6 +7,7 @@ CREATE TABLE edusign(
     date_signature DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
 CREATE TABLE users(
     user_id INTEGER PRIMARY KEY,
     firstname TEXT NOT NULL,
