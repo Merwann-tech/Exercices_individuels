@@ -5,43 +5,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>traducteur latin vers morse</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- MDB icon -->
+  <title>Traducteur latin vers morse</title>
+
+  <!-- Favicon -->
   <link rel="icon" href="img/morse.ico" type="image/x-icon" />
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
   <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
-  <!-- MDB -->
-  <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+
+  <!-- MDBootstrap CSS via CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.min.css" rel="stylesheet" />
+
+  <!-- Ton style perso -->
+  <link rel="stylesheet" href="css/style.css" />
 
   <script>
-  const isSystemThemeSetToDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (isSystemThemeSetToDark) {
-    document.documentElement.dataset.mdbTheme = "dark";
-  };
-
-</script>
+    // Active le thème sombre si le système est en dark mode
+    const isSystemThemeSetToDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (isSystemThemeSetToDark) {
+      document.documentElement.dataset.mdbTheme = "dark";
+    };
+  </script>
 </head>
 
 <body>
-  <!-- Start your project here-->
-  <div class="bg-image vh-100" style="background-image: url('https://www.zoologiste.com/images/xl/morse.jpg');">
-    <li class="nav-item align-items-center d-flex">
+  <!-- Background -->
+  <div class="bg-image vh-100"
+    style="background-image: url('https://www.zoologiste.com/images/xl/morse.jpg'); background-size: cover; background-position: center;">
+    
+    <!-- Switch dark/light -->
+    <div class="nav-item align-items-center d-flex p-3">
       <i class="fas fa-sun"></i>
-      <!-- Default switch -->
       <div class="ms-2 form-check form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher" />
       </div>
       <i class="fas fa-moon"></i>
-    </li>
+    </div>
+
+    <!-- Contenu -->
     <div class="container">
       <div class="text-white text-center">
         <h1 class="mb-3" id="H1">Traducteur latin vers morse</h1>
       </div>
+
       <div class="row gx-xl-5">
+        <!-- Colonne gauche -->
         <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
           <div class="card">
             <div class="card-body">
@@ -51,11 +63,13 @@
                   <label class="form-label" for="input">Traducteur</label>
                 </div>
               </div>
-              <button class="btn btn-outline-primary " href="#" role="button" id="btnTraduction">traduire</button>
-              <button class="btn btn-outline-secondary" href="#" role="button" id="clear">clear</button>
+              <button class="btn btn-outline-primary" id="btnTraduction">traduire</button>
+              <button class="btn btn-outline-secondary" id="clear">clear</button>
             </div>
           </div>
         </div>
+
+        <!-- Colonne droite -->
         <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
           <div class="card">
             <div class="card-body">
@@ -67,9 +81,9 @@
                   <p id="traduction"></p>
                 </div>
               </div>
-              <button class="btn btn-outline-primary" href="#" role="button"
-                id="switch">latin&DoubleLeftRightArrow;morse</button>
-              <button id="copy" type="button" data-mdb-toggle="tooltip" data-mdb-placement="right" title="Copier le texte" class="btn btn-primary btn-floating">
+              <button class="btn btn-outline-primary" id="switch">latin ⇄ morse</button>
+              <button id="copy" type="button" data-mdb-toggle="tooltip" data-mdb-placement="right"
+                title="Copier le texte" class="btn btn-primary btn-floating">
                 <i class="far fa-clone"></i>
               </button>
             </div>
@@ -77,15 +91,30 @@
         </div>
       </div>
     </div>
+
+    <!-- Scripts perso -->
     <script defer type="module" src="script.js"></script>
     <script defer type="module" src="dictionaire.js"></script>
     <script defer type="module" src="themes.js"></script>
   </div>
 
-  <!-- MDB -->
-  <script type="text/javascript" src="js/mdb.umd.min.js"></script>
-  <!-- Custom scripts -->
-  <script type="text/javascript"></script>
+  <!-- MDBootstrap JS -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.umd.min.js"
+></script>
+  <!-- Init MDB components -->
+  <script>
+    // Labels flottants
+    document.querySelectorAll('.form-outline').forEach((formOutline) => {
+      new mdb.Input(formOutline).init();
+    });
+
+    // Tooltips
+    document.querySelectorAll('[data-mdb-toggle="tooltip"]').forEach((el) => {
+      new mdb.Tooltip(el);
+    });
+  </script>
 </body>
 
 </html>
