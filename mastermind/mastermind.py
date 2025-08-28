@@ -5,6 +5,8 @@ resultat = []
 totalEssaie = 12
 essaie = 0 
 info = []
+difficulter = ""
+
 
 def genereListRandom():
     global resultat
@@ -25,14 +27,17 @@ def verifierReponse(combinaison) :
     
 def couleurEnCommuns(combinaison) :
     global info
+    global difficulter
     info = [0,0,0,0]
     nbcouleurEnCommuns = 0
     resultatTemp = resultat.copy()
     for i in range(len(combinaison)) :
         if combinaison[i] in resultatTemp :
-            resultatTemp.remove(combinaison[i])
-            nbcouleurEnCommuns += 1
-            info[i] += 1
+            if difficulter == "oui" :
+                resultatTemp.remove(combinaison[i])
+                nbcouleurEnCommuns += 1
+            else:
+                info[i] += 1
     return nbcouleurEnCommuns
 
 def couleurBienPlacer(combinaison) :
@@ -49,6 +54,7 @@ def fomaterReponse(combinaison) :
     return combinaisonFormater
 
 def lancerJeux() :
+    global difficulter
     genereListRandom()
     essaie = 0
     reponseCorrect = False
