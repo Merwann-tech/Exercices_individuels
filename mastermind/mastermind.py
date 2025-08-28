@@ -1,5 +1,4 @@
 import random
-import tkinter as tk   # à mettre en haut
 
 couleur = ["rouge", "bleu", "vert", "jaune", "orange", "violet", "rose", "noir"]
 resultat = []
@@ -108,50 +107,6 @@ def lancerJeux() :
             print()
 
 lancerJeux() 
-
-# def verifier():
-#     global essaie
-#     essaie += 1
-#     combinaison = fomaterReponse(entry.get())
-
-#     if not verifierCouleur(combinaison) or len(combinaison) != len(resultat):
-#         label_result.config(text=f"Format invalide ! Essais restants : {totalEssaie - essaie}")
-#         return
-
-#     if verifierReponse(combinaison):
-#         label_result.config(text=f"🎉 Bravo ! Tu as trouvé en {essaie} essais !")
-#         bouton.config(state="disabled")
-#     elif essaie >= totalEssaie:
-#         label_result.config(text=f"❌ Perdu ! La solution était {'/'.join(resultat)}")
-#         bouton.config(state="disabled")
-#     else:
-#         bien = couleurBienPlacer(combinaison)
-#         communs = couleurEnCommuns(combinaison)
-#         mal_places = communs - bien
-#         label_result.config(text=f"{bien} bien placés, {mal_places} mal placés. "
-#                                  f"Essais restants : {totalEssaie - essaie}")
-
-# # === INTERFACE Tkinter ===
-# root = tk.Tk()
-# root.title("Mastermind")
-# root.geometry("500x300")
-
-# label_intro = tk.Label(root, text="Entrez 4 couleurs séparées par '/' (ex: rouge/bleu/jaune/noir)\nCouleurs possibles: " + ", ".join(couleur))
-# label_intro.pack(pady=10)
-
-# entry = tk.Entry(root, width=50)
-# entry.pack(pady=5)
-
-# bouton = tk.Button(root, text="Valider", command=verifier)
-# bouton.pack(pady=5)
-
-# label_result = tk.Label(root, text="")
-# label_result.pack(pady=10)
-
-# # Génération de la combinaison secrète
-# genereListRandom()
-
-# root.mainloop()
 
 
 
