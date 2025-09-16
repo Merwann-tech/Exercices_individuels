@@ -35,7 +35,7 @@ function afficherTriangleGauche(n) {
 function afficherEtoiles(n, espacement) {
     let ligne = ""
     for (let i = 1; i <= n; i++) {
-        ligne += "*"
+        ligne += "#"
     }
     for (let i = 1; i <= espacement; i++) {
         ligne = " " + ligne
